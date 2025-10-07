@@ -1,0 +1,20 @@
+{
+  "name": "Debuncle",
+  "description": "Fact Sheikh-er",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "public/icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+   {
+     "matches": ["https://*.x.com/*"],
+     "js": ["scripts/content-script.js"],
+     "runAt": "document_end"
+   }
+ ]
+}

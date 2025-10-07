@@ -1,0 +1,7 @@
+legacy
+template
+.venv
+__pycache__
+lib/__pycache__
+.env
+.DS_Store
