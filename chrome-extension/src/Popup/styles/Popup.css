@@ -7,8 +7,8 @@
 }
 
 .title {
-  font-weight: 600;
-  font-size: 2em;
+  font-weight: 700;
+  font-size: 2.3em;
   line-height: 0%;
 }
 
@@ -22,7 +22,6 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: start;
-  row-gap: 10px;
   padding: 2rem;
 }
 
@@ -77,6 +76,16 @@
   transition: border-color 0.25s;
 }
 
+.tweet-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  /* padding-top: 24px; */
+  /* padding-bottom: 8px; */
+  line-height: normal;
+}
+
 .tweet-name-handle {
   display: flex;
   flex-direction: row;
@@ -103,12 +112,12 @@
   font-size: 1.2em;
   font-weight: 400;
   white-space: pre-line;
-  line-height: 1.2rem;
-  margin-bottom: 4px;
+  line-height: 1.1rem;
 }
 
 .tweet-images-container {
   width: auto;
+  padding: 0.3rem 0 0.3rem 0
 }
 
 .tweet-image {
@@ -154,6 +163,15 @@
   object-fit: contain;
 }
 
+.tweet-footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0 0.5rem 0
+}
+
 .include-attachments-container {
   display: flex;
   flex-direction: row;
@@ -182,12 +200,11 @@
   cursor: default;
 }
 
-.post-preview-container {
+.tweet-preview-container {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: start;
-  border-top: solid #ffffff22 1px;
   border-bottom: solid #ffffff22 1px;
   row-gap: 12px;
   line-height: 0;
@@ -195,10 +212,11 @@
   padding-bottom: 1rem;
 }
 
-.post-preview-label {
-  font-size: 1em;
+.tweet-preview-label {
+  font-size: 0.9em;
   font-weight: 500;
   color: gray;
+
 }
 
 .claims-container {
@@ -215,9 +233,9 @@
   align-items: stretch;
   justify-content: start;
   row-gap: 12px;
-    border-top: solid #ffffff22 1px;
+  border-top: solid #ffffff22 1px;
   padding-top: 1.2rem;
-  padding-bottom: 1.2rem;
+  margin-top: 1.2rem;
 }
 
 .claim {

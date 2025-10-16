@@ -6,6 +6,7 @@ import ClaimList from "./ClaimList";
 import PostPreview from "./PostPreview";
 import UnsupportedNotice from "./UnsupportedNotice";
 import type { Claim, Post } from "../types";
+import Icon from "../assets/Icon";
 
 // Main popup component for the extension
 const Popup: React.FC = () => {
@@ -75,8 +76,8 @@ const Popup: React.FC = () => {
       {/* Header */}
       <div className="header">
         <div className="title-section-start">
-          <img className="icon" src="icon.svg" alt="Debuncle icon" />
-          <h1 className="title">Debuncle</h1>
+          <Icon color="white"></Icon>
+          <h1 className="title">debunc</h1>
         </div>
         <div className="title-section-end">
           Supports <img className="x-icon" src="x-icon.svg" alt="X icon" />

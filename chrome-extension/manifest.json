@@ -1,6 +1,6 @@
 {
-  "name": "Debuncle",
-  "description": "Fact Sheikh-er",
+  "name": "Debunc",
+  "description": "Debunc is a fact-checking extension that helps users verify claims and detect misinformation directly within their browser.",
   "version": "1.0",
   "manifest_version": 3,
   "action": {

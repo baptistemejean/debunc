@@ -10,15 +10,16 @@ interface PostPreviewProps {
 
 const PostPreview: React.FC<PostPreviewProps> = ({ post, includeAttachments, setIncludeAttachments, hasAttachments }) => (
   <>
-    <span className="post-preview-label">Post preview</span>
-    <div className="post-preview-container">
-      <div className="tweet-name-handle">
-        <span className="tweet-name">{post.name}</span>
-        <span className="tweet-handle">{post.handle}</span>
+    <div className="tweet-preview-container">
+      <div className="tweet-header">
+        <span className="tweet-name-handle">
+          <span className="tweet-name">{post.name}</span>
+          <span className="tweet-handle">{post.handle}</span>
+        </span>
       </div>
       <div className="tweet-text">{post.text}</div>
 
-      {includeAttachments && (
+      {includeAttachments && hasAttachments && (
         <div className="tweet-images-container">
           {/* Filter out duplicate thumbnails */}
           {post.images.map((img) => !post.videos.find((v) => v.thumbnail === img) && <img className="tweet-image" key={img} src={img} />)}
@@ -35,18 +36,21 @@ const PostPreview: React.FC<PostPreviewProps> = ({ post, includeAttachments, set
     </div>
 
     {/* Attachment toggle */}
-    <div className="include-attachments-container">
-      <label
-        className="include-attachments-label"
-        style={{
-          color: hasAttachments ? "inherit" : "gray",
-          cursor: hasAttachments ? "pointer" : "default",
-        }}
-        htmlFor="includeAttachments"
-      >
-        Include attachments
-      </label>
-      <input id="includeAttachments" type="checkbox" disabled={!hasAttachments} checked={includeAttachments} onChange={() => setIncludeAttachments(!includeAttachments)} />
+    <div className="tweet-footer">
+      <span className="tweet-preview-label">Post Preview</span>
+      <span className="include-attachments-container">
+        <label
+          className="include-attachments-label"
+          style={{
+            color: hasAttachments ? "inherit" : "gray",
+            cursor: hasAttachments ? "pointer" : "default",
+          }}
+          htmlFor="includeAttachments"
+        >
+          Include attachments
+        </label>
+        <input id="includeAttachments" type="checkbox" disabled={!hasAttachments} checked={includeAttachments} onChange={() => setIncludeAttachments(!includeAttachments)} />
+      </span>
     </div>
   </>
 );
