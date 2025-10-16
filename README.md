@@ -1,6 +1,6 @@
-# 🕵️‍♂️ Debuncle — AI-Powered Fact-Checking Chrome Extension (Beta)
+# Debunc — AI-Powered Fact-Checking browser Extension (Beta)
 
-Debuncle is a **fact-checking Chrome extension** that helps users verify claims and detect misinformation directly within their browser.  
+Debunc is a **fact-checking browser extension** that helps users verify claims and detect misinformation directly within their browser.  
 Built with **React + Vite** for the frontend and a **Flask + Python** backend powered by the **OpenAI Responses API**, Debuncle provides quick, AI-assisted fact verification.
 
 ---
@@ -15,14 +15,8 @@ Built with **React + Vite** for the frontend and a **Flask + Python** backend po
 
 ---
 
-## 🛠️ Tech Stack
+## ⏭️ Coming soon
 
-**Frontend**
-- React  
-- Vite  
-- Chrome Extension APIs  
-
-**Backend**
-- Python  
-- Flask  
-- OpenAI Responses API
+- 🌎 Support for more browsers (Firefox, Opera, Safari ...)
+- 💬 Reddit support
+- ▶️ Video support
