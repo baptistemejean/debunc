@@ -34,7 +34,7 @@ class ClaimCheck():
 
     def check_single(self, claim, parser):
         try:
-            claim_text = f"{claim["claim"]} {claim["context"]}" 
+            claim_text = f'{claim["claim"]} {claim["context"]}' 
             content = [{"type": "input_text", "text": claim_text}]
 
             response = self.client.responses.create(

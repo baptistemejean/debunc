@@ -1,6 +1,6 @@
-from lib.check import ClaimCheck, score_labels
-from lib.extract import ClaimExtraction
-from utils.parser import Parser
+from flaskr.lib.check import ClaimCheck, score_labels
+from flaskr.lib.extract import ClaimExtraction
+from flaskr.utils.parser import Parser
 from flask import Flask
 from flask_cors import CORS, cross_origin
 import json
@@ -28,7 +28,7 @@ def format_request_data(data):
         images = data["images"]
         for v in data["videos"]:
             images.append(v["thumbnail"])
-        text = f"{data["name"]} (@{data["handle"]}):\n{data["text"]}"
+        text = f"{data['name']} (@{data['handle']}):\n{data['text']}"
 
         return text, images
     except Exception as e:
@@ -36,18 +36,31 @@ def format_request_data(data):
 
 app = Flask(__name__)
 
+# Production configuration
+app.config.update(
+    SECRET_KEY=os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production'),
+    ENV=os.getenv('FLASK_ENV', 'production'),
+    DEBUG=os.getenv('FLASK_DEBUG', 'False').lower() == 'true',
+    TESTING=False,
+    # Security settings
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE='Lax',
+    PERMANENT_SESSION_LIFETIME=3600,
+)
+
 CORS(app, resources={
     r"/*": {
-        "origins": f"chrome-extension://{os.getenv("EXTENSION_ID")}"
+        "origins": f"chrome-extension://{os.getenv('EXTENSION_ID')}"
     }
 })
 
-# limiter = Limiter(
-#     get_remote_address,
-#     app=app,
-#     default_limits=["200 per day"],
-#     storage_uri="memory://",
-# )
+limiter = Limiter(
+    get_remote_address,
+    app=app,
+    default_limits=["200 per day"],
+    storage_uri="memory://",
+)
 
 @app.errorhandler(HTTPException)
 def handle_exception(e):

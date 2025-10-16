@@ -7,6 +7,7 @@ import PostPreview from "./PostPreview";
 import UnsupportedNotice from "./UnsupportedNotice";
 import type { Claim, Post } from "../types";
 import Icon from "../assets/Icon";
+import config from "../../config";
 
 // Main popup component for the extension
 const Popup: React.FC = () => {
@@ -52,7 +53,7 @@ const Popup: React.FC = () => {
     setIsRequestLoading(true);
 
     try {
-      const url = new URL("http://127.0.0.1:5000");
+      const url = new URL(`http://${config.host}:${config.port}`);
 
       const response = await fetch(url, {
         method: "POST",
