@@ -16,5 +16,13 @@
      "js": ["scripts/content-script.js"],
      "runAt": "document_end"
    }
- ]
+ ],
+ "permissions": [
+    "identity",
+    "identity.email"
+  ],
+  "oauth2": {
+    "client_id": "288187946961-taen90p3jpieajg6vr6kjlvlctaiggov.apps.googleusercontent.com",
+    "scopes": ["openid", "email", "profile"]
+  }
 }

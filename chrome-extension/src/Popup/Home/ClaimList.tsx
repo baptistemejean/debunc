@@ -1,6 +1,6 @@
 import React from "react";
 import MarkdownRenderer from "./MarkdownRenderer";
-import type { Claim } from "../types";
+import type { Claim } from "../../types";
 
 const scoreLabels = [
   "Solid Fax 📠 (the claim checks out)",
@@ -17,12 +17,14 @@ interface ClaimListProps {
 const ClaimList: React.FC<ClaimListProps> = ({ claims }) => (
   <div className="claims-container">
     {claims.map((claim) => (
-      <div className="claim-container" key={claim.claim}>
-        <div className="claim">{claim.claim}</div>
-        <div className="tweet-handle">{scoreLabels[claim.fakeness_score - 1]}</div>
-        <div className="tweet-text">
-          <MarkdownRenderer input={claim.summary} />
-        </div>
+      <div className="claim-container" key={claim.label}>
+        {claim.label && <div className="claim">{claim.label}</div>}
+        {claim.score && <div className="tweet-handle">{scoreLabels[claim.score - 1]}</div>}
+        {claim.summary && (
+          <div className="tweet-text">
+            <MarkdownRenderer input={claim.summary} />
+          </div>
+        )}
       </div>
     ))}
   </div>

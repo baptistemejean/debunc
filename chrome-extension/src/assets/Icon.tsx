@@ -5,7 +5,7 @@ interface IProps {
   size?: number;
 }
 
-const Icon: React.FC<IProps> = ({ color, size = 30 }) => {
+const Icon: React.FC<IProps> = ({ color, size = 25 }) => {
   return (
     <svg version="1.1" id="svg1" width={size} height={size} viewBox="0 0 569.30432 799.49878">
       <defs id="defs1" />

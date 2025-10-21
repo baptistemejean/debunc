@@ -1,6 +1,6 @@
 const config = {
-  host: "89.168.42.68",
-  port: "8000",
+  host: "127.0.0.1",
+  port: "5000",
 };
 
 export default config;
