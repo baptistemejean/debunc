@@ -12,7 +12,10 @@ dependencies = [
     "flask_cors",
     "flask_limiter",
     "openai",
-    "dotenv"
+    "dotenv",
+    "flask_socketio",
+    "google-api-python-client",
+    "psycopg2"
 ]
 
 [project.scripts]
